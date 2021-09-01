@@ -1,0 +1,36 @@
+# see https://datahubproject.io/docs/metadata-ingestion/source_docs/glue for complete documentation
+source:
+  type: sqlalchemy
+  config:
+    connect_uri: "presto://snandi:Il2w@GH14@dev-presto.gdp.data.grubhub.com:443/hive/"
+    options:
+      connect_args:
+        protocol: https
+    include_views: False # if not, then it shows NotImplemented error
+    schema_pattern:
+      allow:
+        - integrated_diner
+    table_pattern:
+      allow:
+        - integrated_diner.diner_order_agg
+    platform: hive
+    profiling:
+      enabled: true
+      #limit: 10000 # read only 10k rows while profiling for test, but have NO access
+    profile_pattern:
+      allow:
+        - integrated_diner.diner_order_agg
+
+
+transformers:
+  - type: "simple_add_dataset_tags"
+    config:
+      tag_urns:
+        - "urn:li:tag:LoggingTable"
+        - "urn:li:tag:DataEngInternal"
+
+# see https://datahubproject.io/docs/metadata-ingestion/sink_docs/datahub for complete documentation
+sink:
+  type: "datahub-rest"  # it can be a kafka topic too
+  config:
+    server: "http://localhost:8080"

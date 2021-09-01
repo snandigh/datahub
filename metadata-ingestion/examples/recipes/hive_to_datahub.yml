@@ -1,0 +1,26 @@
+# see https://datahubproject.io/docs/metadata-ingestion/source_docs/glue for complete documentation
+source:
+  type: hive
+  config:
+    # Coordinates
+    host_port: gedi.gdp.data.grubhub.com:10000
+    database: team_marketing_data # optional, if not specified, ingests from all databases
+    username: snandi # optional
+    profiling:
+      enabled: true
+    profile_pattern:
+      allow:
+        - "team_marketing_data.diner_dim_v2"
+
+transformers:
+  - type: "simple_add_dataset_tags"
+    config:
+      tag_urns:
+        - "urn:li:tag:LoggingTable"
+        - "urn:li:tag:DataEngInternal"
+
+# see https://datahubproject.io/docs/metadata-ingestion/sink_docs/datahub for complete documentation
+sink:
+  type: "datahub-rest"
+  config:
+    server: "http://localhost:8080"
