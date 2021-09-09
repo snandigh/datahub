@@ -4,8 +4,21 @@ source:
   type: "kafka"
   config:
     connection:
-      bootstrap: "localhost:9092"
+      bootstrap: "pkc-4nym6.us-east-1.aws.confluent.cloud:9092"
+      consumer_config:
+        # See https://docs.confluent.io/platform/current/clients/confluent-kafka-python/html/index.html#serde-consumer#
+        ## This config works, though it says -'failed to get value schema: Failed to parse: , which is expected
+        security.protocol: "SASL_SSL"
+        sasl.mechanisms: PLAIN
+        sasl.username: DKLXXEUSPFQYNRWL
+        sasl.password: vklL1cdIJkZ1/Nkl1lDOxOb6y+zeo0uURpWjqjy+9OOJd6Jow38ovUgadjk/hcGw
+      schema_registry_url: "https://MC2N64K3NQ5U7D67:TQEwudxOQfZ4NtS4KhJZg6YZ5Qjh/BCSUDz2RGfX712t5vBLrlwAIwxZPNmXVtuP@psrc-knmwm.us-east-2.aws.confluent.cloud"
 
+    topic_patterns:
+      allow:
+        - "ATLAS_HOOK"
+      deny:
+        - "^_.+" # deny all tables that start with an underscore
 # see https://datahubproject.io/docs/metadata-ingestion/sink_docs/datahub for complete documentation
 sink:
   type: "datahub-rest"
