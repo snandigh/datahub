@@ -16,9 +16,9 @@ emitter = DatahubKafkaEmitter(
         # This is the same config format as the standard Kafka sink's YAML.
         {
             "connection": {
-                "bootstrap": "broker:9092",
+                "bootstrap": "localhost:9092",
                 "producer_config": {},
-                "schema_registry_url": "http://schema-registry:8081",
+                "schema_registry_url": "http://localhost:8081",
             }
         }
     )

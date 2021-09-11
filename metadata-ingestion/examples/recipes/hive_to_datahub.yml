@@ -3,11 +3,11 @@ source:
   type: hive
   config:
     # Coordinates
-    host_port: gedi.gdp.data.grubhub.com:10000
+    host_port: dev-gedi.gdp.data.grubhub.com:10000
     database: team_marketing_data # optional, if not specified, ingests from all databases
     username: snandi # optional
     profiling:
-      enabled: true
+      enabled: false
     profile_pattern:
       allow:
         - "team_marketing_data.diner_dim_v2"

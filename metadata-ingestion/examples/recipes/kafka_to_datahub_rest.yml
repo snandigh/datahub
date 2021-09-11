@@ -16,7 +16,7 @@ source:
 
     topic_patterns:
       allow:
-        - "ATLAS_HOOK"
+        - "SchemaTest"
       deny:
         - "^_.+" # deny all tables that start with an underscore
 # see https://datahubproject.io/docs/metadata-ingestion/sink_docs/datahub for complete documentation
