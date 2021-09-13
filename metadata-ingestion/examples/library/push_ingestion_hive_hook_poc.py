@@ -24,13 +24,13 @@ from datahub.metadata.schema_classes import (
 SchemaConverter = AvroToMceSchemaConverter(is_key_schema=False)
 
 # consumer from ATLAS_HOOK kafka topic
-consumer_conf = {'bootstrap.servers': "pkc-4nym6.us-east-1.aws.confluent.cloud:9092",
+consumer_conf = {'bootstrap.servers': "xxx",
                  'group.id': group_id,
                  'auto.offset.reset': 'earliest',
                  'security.protocol': 'SASL_SSL',
                  'sasl.mechanisms': 'PLAIN',
-                 'sasl.username': 'DKLXXEUSPFQYNRWL',
-                 'sasl.password': 'vklL1cdIJkZ1/Nkl1lDOxOb6y+zeo0uURpWjqjy+9OOJd6Jow38ovUgadjk/hcGw'
+                 'sasl.username': 'xxx',
+                 'sasl.password': 'xxx'
                  }
 
 topic = 'ATLAS_HOOK'
