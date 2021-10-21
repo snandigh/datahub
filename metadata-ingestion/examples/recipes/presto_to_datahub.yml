@@ -16,7 +16,7 @@ source:
     platform: hive
     profiling:
       enabled: true
-      #limit: 10000 # read only 10k rows while profiling for test, but it creates a temp table in presto - I have NO access
+      limit: 100 # read only 10k rows while profiling for test, but it creates a temp table in presto - I have NO access
     profile_pattern:
       allow:
         - integrated_diner.diner_order_agg
