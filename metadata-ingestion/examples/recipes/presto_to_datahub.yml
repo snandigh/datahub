@@ -2,7 +2,7 @@
 source:
   type: sqlalchemy
   config:
-    connect_uri: "presto://snandi:Il2w@GH14@presto.gdp.data.grubhub.com:443/hive/"
+    connect_uri: "presto://snandi:{password}@presto.gdp.data.grubhub.com:443/hive/"
     options:
       connect_args:
         protocol: https
