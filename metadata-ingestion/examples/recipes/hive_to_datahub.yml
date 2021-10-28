@@ -23,4 +23,4 @@ transformers:
 sink:
   type: "datahub-rest"
   config:
-    server: "http://localhost:8080"
+    server: "http://10.174.24.179:8080"
