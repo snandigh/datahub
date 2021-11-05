@@ -14,6 +14,7 @@ from datahub.metadata.schema_classes import (
     OwnershipTypeClass,
 )
 
+
 properties = {
     "Table Size": "2.45 GB",
     "Data Recency": "10/26/2021 6:43 AM CST",
